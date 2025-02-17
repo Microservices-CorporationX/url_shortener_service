@@ -10,14 +10,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.util.ReflectionTestUtils;
-import ru.corporatiox.urlshortenerservice.generator.HashGenerator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -32,6 +30,7 @@ public class HashGeneratorTest {
     private Base62Encoder base62Encoder;
     @InjectMocks
     private HashGenerator hashGenerator;
+
     private long maxRange;
 
     @BeforeEach
@@ -50,7 +49,6 @@ public class HashGeneratorTest {
         hashGenerator.generateHash();
 
         verify(hashRepository).saveAll(hashes);
-        verify(hashGenerator, times(1)).generateHash();
     }
 
     @Test
@@ -71,13 +69,11 @@ public class HashGeneratorTest {
         long amount = 10L;
         List<String> expectedHashAfterGet = prepareStringHashes();
         List<Hash> hashes = prepareHashes();
-        when(hashRepository.getHashBatch(amount)).thenReturn(hashes);
-
+        when(hashRepository.getHashBatch(amount)).thenReturn(new ArrayList<>()).thenReturn(hashes);
 
         List<String> actualHashes = hashGenerator.getHashes(amount);
 
         assertEquals(expectedHashAfterGet, actualHashes);
-        verify(hashGenerator, times(1)).generateHash();
         verify(hashRepository, times(2)).getHashBatch(amount);
     }
 
