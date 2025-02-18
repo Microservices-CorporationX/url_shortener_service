@@ -30,16 +30,16 @@ public class UrlService {
         return hash;
     }
 
-    public String getUrl(String hash) {
+    public UrlDto getUrl(String hash) {
         String url = urlCacheRepository.getByHash(hash);
         if (url != null && !url.isBlank()) {
-            return url;
+            return new UrlDto(url);
         }
 
         Url urlFromRepo = urlRepository.findByHash(hash)
                 .orElseThrow(() -> new UrlNotFoundException("URL does not exist for this hash"));
 
-        return urlFromRepo.getUrl();
+        return new UrlDto(urlFromRepo.getUrl());
     }
 
 }
