@@ -58,9 +58,9 @@ public class UrlServiceTest {
     public void testGetUrlIfCacheReturnUrl() {
         when(urlCacheRepository.getByHash(hash)).thenReturn(url);
 
-        String actualUrl = urlService.getUrl(hash);
+        UrlDto actualUrl = urlService.getUrl(hash);
 
-        assertEquals(url, actualUrl);
+        assertEquals(url, actualUrl.getUrl());
     }
 
     @Test
@@ -69,9 +69,9 @@ public class UrlServiceTest {
         when(urlCacheRepository.getByHash(hash)).thenReturn(null);
         when(urlRepository.findByHash(hash)).thenReturn(Optional.of(urlFromRepo));
 
-        String actualUrl = urlService.getUrl(hash);
+        UrlDto actualUrl = urlService.getUrl(hash);
 
-        assertEquals(url, actualUrl);
+        assertEquals(url, actualUrl.getUrl());
     }
 
     @Test

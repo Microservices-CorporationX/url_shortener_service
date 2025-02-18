@@ -34,15 +34,15 @@ public class UrlController {
     }
 
     @GetMapping("/{hash}")
-    public ResponseEntity<Void> getUrl(@PathVariable String hash) {
-        String redirectUrl = urlService.getUrl(hash);
+    public ResponseEntity<UrlDto> getUrl(@PathVariable String hash) {
+        UrlDto redirectUrl = urlService.getUrl(hash);
 
-        if (redirectUrl == null || redirectUrl.isBlank()) {
+        if (redirectUrl.getUrl() == null || redirectUrl.getUrl().isBlank()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
 
         return ResponseEntity.status(302)
-                .header("Location", redirectUrl)
+                .header("Location", redirectUrl.getUrl())
                 .build();
     }
 }
