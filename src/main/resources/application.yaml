@@ -47,6 +47,7 @@ hash:
   cron: 0 0 0 * * *
   max-range: 100000
   cache:
+    time-to-live: 1
     capacity: 10000
     queue-percentage: 20
 
