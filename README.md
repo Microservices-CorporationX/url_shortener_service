@@ -76,10 +76,10 @@ RESTful приложение
 * [Конфигурация](src/main/java/ru/corporatiox/urlshortenerservice/config/redis/RedisConfig.java) –
     сетапится [RedisTemplate](https://docs.spring.io/spring-data/redis/docs/current/api/org/springframework/data/redis/core/RedisTemplate.html) –
     класс, для удобной работы с Redis силами Spring
-* [Кэширование хэшей](src/main/java/ru/corporationx/achievement/cache) – заполнение хэшами при запуске приложения, получение хэшей с вычислением процента заполнения хранилища хэшей для данамического заполнения
-* [Энкодер](src/main/java/ru/corporationx/achievement/encoder) – энкодер для формирования хэшей
-* [Генератор](src/main/java/ru/corporationx/achievement/generator) – генерация хэшей по расписанию, асинхронное получение хэшей
-* [Обработчик исключений](src/main/java/ru/corporationx/achievement/handler) – общий обработчик исключительных ситуаций
+* [Кэширование хэшей](src/main/java/ru/corporationx/urlshortenerservice/cache) – заполнение хэшами при запуске приложения, получение хэшей с вычислением процента заполнения хранилища хэшей для данамического заполнения
+* [Энкодер](src/main/java/ru/corporationx/urlshortenerservice/encoder) – энкодер для формирования хэшей
+* [Генератор](src/main/java/ru/corporationx/urlshortenerservice/generator) – генерация хэшей по расписанию, асинхронное получение хэшей
+* [Обработчик исключений](src/main/java/ru/corporationx/urlshortenerservice/handler) – общий обработчик исключительных ситуаций
 
 # Тесты
 
