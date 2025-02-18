@@ -79,6 +79,7 @@ RESTful приложение
 * [Кэширование хэшей](src/main/java/ru/corporationx/achievement/cache) – заполнение хэшами при запуске приложения, получение хэшей с вычислением процента заполнения хранилища хэшей для данамического заполнения
 * [Энкодер](src/main/java/ru/corporationx/achievement/encoder) – энкодер для формирования хэшей
 * [Генератор](src/main/java/ru/corporationx/achievement/generator) – генерация хэшей по расписанию, асинхронное получение хэшей
+* [Обработчик исключений](src/main/java/ru/corporationx/achievement/handler) – общий обработчик исключительных ситуаций
 
 # Тесты
 
