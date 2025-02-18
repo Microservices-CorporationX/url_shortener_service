@@ -70,7 +70,7 @@ java -jar build/libs/ServiceTemplate-1.0.jar
 RESTful приложение
 
 * Обычная трёхслойная
-  архитектура – [Service](src/main/java/ru/corporatiox/urlshortenerservice/service), [Repository](src/main/java/ru/corporatiox/urlshortenerservice/repository)
+  архитектура – [Controller](src/main/java/ru/corporatiox/urlshortenerservice/controller), [Service](src/main/java/ru/corporatiox/urlshortenerservice/service), [Repository](src/main/java/ru/corporatiox/urlshortenerservice/repository)
 * Слой Repository реализован на JPA (Hibernate)
 * Реализован простой Messaging через [Redis pub/sub](https://redis.io/docs/manual/pubsub/)
 * [Конфигурация](src/main/java/ru/corporatiox/urlshortenerservice/config/redis/RedisConfig.java) –
